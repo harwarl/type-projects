@@ -1,8 +1,12 @@
 import { MatchReader } from "./MatchReader";
+import { CSVFileReader } from "./CSVRreader";
 import { MatchResult } from "./MatchResult";
-const reader = new MatchReader('football.csv');
-reader.read();
-const matches = reader.data;
+
+const csvFileReader = new CSVFileReader('football.csv');
+const matchReader = new MatchReader(csvFileReader);
+
+matchReader.load();
+const matches = matchReader.matches;
 
 
 let manUnitedWins: number = 0;
